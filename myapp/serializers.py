@@ -6,4 +6,17 @@ class StudentAvailabilitySerializer(serializers.ModelSerializer):
         model = StudentAvailability
         fields = '__all__'
 
-# Similarly, define serializers for other models
+class StudentScheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentSchedule
+        fields = '__all__'
+
+class ProfessorOptionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfessorOptions
+        fields = '__all__'
+
+class StudentRankingsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentRankings
+        fields = '__all__'

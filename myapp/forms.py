@@ -14,7 +14,7 @@ class StudentScheduleForm(forms.ModelForm):
 class ProfessorOptionsForm(forms.ModelForm):
     class Meta:
         model = ProfessorOptions
-        fields = ['email', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+        fields = ['name', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 class StudentRankingsForm(forms.ModelForm):
     class Meta:
