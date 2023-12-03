@@ -36,3 +36,8 @@ class StudentRankings(models.Model):
     first = models.CharField(max_length=50)
     second = models.CharField(max_length=50)
     third = models.CharField(max_length=50)
+
+class Login(models.Model):
+    email = models.EmailField()
+    password = models.CharField(max_length=50)
+    professor = models.BooleanField()

@@ -1,5 +1,5 @@
 from django import forms
-from .models import StudentAvailability, StudentRankings, StudentSchedule, ProfessorOptions
+from .models import StudentAvailability, StudentRankings, StudentSchedule, ProfessorOptions, Login
 
 class StudentAvailabilityForm(forms.ModelForm):
     class Meta:
@@ -20,3 +20,8 @@ class StudentRankingsForm(forms.ModelForm):
     class Meta:
         model = StudentRankings
         fields = ['email', 'first', 'second', 'third']
+
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = Login
+        fields = ['email', 'password', 'professor']

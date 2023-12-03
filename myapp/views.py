@@ -1,7 +1,7 @@
-from .models import StudentAvailability, StudentRankings, ProfessorOptions, StudentSchedule
+from .models import StudentAvailability, StudentRankings, ProfessorOptions, StudentSchedule, Login
 from django.shortcuts import render, redirect
-from .forms import StudentAvailabilityForm, StudentRankingsForm, StudentScheduleForm, ProfessorOptionsForm
-from .serializers import StudentAvailabilitySerializer, StudentRankingsSerializer, StudentScheduleSerializer, ProfessorOptionsSerializer
+from .forms import StudentAvailabilityForm, StudentRankingsForm, StudentScheduleForm, ProfessorOptionsForm, LoginForm
+from .serializers import StudentAvailabilitySerializer, StudentRankingsSerializer, StudentScheduleSerializer, ProfessorOptionsSerializer, LoginSerializer
 from rest_framework import viewsets
 
 def new_student_availability(request):
@@ -79,3 +79,23 @@ def professor_options(request):
 class ProfessorOptionsViewSet(viewsets.ModelViewSet):
     queryset = ProfessorOptions.objects.all()
     serializer_class = ProfessorOptionsSerializer
+
+
+def new_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = LoginForm()
+    return render(request, 'myapp/login.html', {'form': form})
+
+
+def login(request):
+    login = login.objects.all()
+    return render(request, 'myapp/login.html', {'login': login})
+
+class LoginViewSet(viewsets.ModelViewSet):
+    queryset = Login.objects.all()
+    serializer_class = LoginSerializer
